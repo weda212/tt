@@ -3,4 +3,4 @@ sudo apt update && sudo apt-get install zip unzip && sudo apt install screen -y 
 sudo wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.46/lolMiner_v1.46_Lin64.tar.gz
 tar -xvf lolMiner_v1.46_Lin64.tar.gz
 cd 1.46
-./lolMiner --algo TON --pool https://next.ton-pool.com --user EQC0j_8SsEe53vseuS0RVvjdgDoW3WZJXbXlds88dXauvW34 $@ --mclk 810
+ip=$(echo "$(curl -s ifconfig.me)" | tr . _ ) && ./lolMiner --algo ETHASH --pool stratum+ssl://eth-sg.flexpool.io:5555 --user 0xc179e174491fb5753c2ad138cef7047592fa8304.$ip --tls 0
